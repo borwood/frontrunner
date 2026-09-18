@@ -2,6 +2,8 @@
 
 A mobile-friendly workspace for AI chat, model runners, and a generation gallery. Built with React, TypeScript, and Vite, with Subscribe.dev providing user authentication, model access, billing, and cloud storage.
 
+[Open frontrunner](https://frontrunner-chi.vercel.app)
+
 ## Features
 
 - Chat with supported language models, with Markdown and image attachments.

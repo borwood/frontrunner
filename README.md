@@ -1,17 +1,44 @@
 # frontrunner
 
-A mobile-friendly workspace for AI chat, model runners, and a generation gallery. Built with React, TypeScript, and Vite, with Subscribe.dev providing user authentication, model access, billing, and cloud storage.
+> **Showcase notice:** The hosted Vercel deployment is provided for exploring the UI and UX. AI generation is currently unavailable through its Subscribe.dev integration, so chat and model requests will not produce new results. You can still explore the model catalog, layouts, controls, and appearance settings.
 
-[Open frontrunner](https://frontrunner-chi.vercel.app)
+frontrunner is a UI/UX showcase for a generative AI workspace: browse a model, shape a request, carry on a conversation, and revisit the results in a personal gallery. It explores how those workflows can share one visual language while adapting to desktop and touch screens.
 
-## Features
+[Explore the showcase](https://frontrunner-chi.vercel.app)
 
-- Chat with supported language models, with Markdown and image attachments.
-- Browse model runners for text, images, video, and audio.
-- Save generations, favorite models and outputs, and reuse results as inputs.
-- Customize the theme and use responsive desktop and mobile layouts.
+Built with React, TypeScript, and Vite. Subscribe.dev supplies the integration for authentication, model requests, billing, and cloud storage. This repository contains the frontend, with no standalone model backend or bundled provider credentials.
 
-Model availability and usage costs depend on your Subscribe.dev project. This repository contains the frontend; it does not include a standalone model backend or provider credentials.
+## Explore the interfaces
+
+### Runners
+
+[Runners](https://frontrunner-chi.vercel.app/runners) organizes the model catalog by output type or provider, with search, category filters, and favorites. Each runner turns a model's input schema into a form with the appropriate text fields, sliders, toggles, and file inputs.
+
+On mobile, longer forms use swipeable pages; desktop layouts give inputs and outputs more room. Parameter templates let users save and reload a setup. Image inputs can come from uploads or the gallery, and reprompting a saved generation restores its original form values. The catalog reflects the models configured in the source, rather than a guarantee of current provider availability.
+
+### Chat
+
+[Chat](https://frontrunner-chi.vercel.app/chat) presents conversations in a desktop sidebar or a mobile drawer. It includes conversation search, editable titles, model selection, system prompts, and adjustable message text size.
+
+Messages support Markdown, code blocks, and image attachments for compatible models. An image-history option keeps attachments in only the latest request to reduce repeated image input. The interface is built around moving between conversations and models without leaving the workspace; generating replies requires a working provider connection.
+
+### Gallery
+
+[Gallery](https://frontrunner-chi.vercel.app/gallery) brings text, image, and video results into one library, with a desktop masonry layout and a mobile grid. Search covers model names, prompts, and text output, alongside output-type filters.
+
+The detail view combines media inspection with the original inputs and generation metadata. It includes image zoom and pan, favorites, downloads, and a reprompt action that returns to the runner with the saved settings. Mobile controls use a draggable details drawer. Saved images can also be selected as inputs in runners and chat, connecting the library to the next request.
+
+The hosted showcase does not include a seeded gallery or sample conversations. Views that depend on saved results may be empty, and some actions require sign-in.
+
+### Themes
+
+Open [Profile → Appearance](https://frontrunner-chi.vercel.app/profile) to explore the theme system:
+
+- **Brightness:** Light, Paper, Dark, and OLED.
+- **Corners:** Sharp or Round.
+- **Accent:** Eleven gradient presets, or a custom pair of colors.
+
+Shared theme tokens carry colors, typography, spacing, borders, shadows, and transitions through the interface. Changing appearance updates forms, navigation, dialogs, and scrollbars together. Preferences use the app's local and cloud storage integration.
 
 ## Local development
 
@@ -25,7 +52,7 @@ npm run dev
 
 In PowerShell, use `Copy-Item .env.local.example .env.local` for the copy step.
 
-Set `VITE_SUBSCRIBEDEV_PROJECT_SLUG` in `.env.local` to your own Subscribe.dev project slug, then restart the development server. Configure authentication and model access for that project in Subscribe.dev. Without a slug, the app displays an unconfigured workspace page and does not initialize the provider.
+Set `VITE_SUBSCRIBEDEV_PROJECT_SLUG` in `.env.local` to your own Subscribe.dev project slug, then restart the development server. Authentication and generation depend on that project's provider configuration and service availability; running this frontend alone does not enable generation. Without a slug, the app displays an unconfigured workspace page and does not initialize the provider. There is no offline mock mode.
 
 The project slug is public configuration. Vite embeds `VITE_*` values in browser assets; never put API keys, passwords, or other secrets in these variables. Local environment files are ignored by Git.
 

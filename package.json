@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "description": "A mobile-friendly workspace for AI chat, model runners, and a generation gallery.",
   "license": "MIT",
-  "engines": { "node": ">=22.12.0" },
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +15,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@subscribe.dev/react": "^0.1.9",
+    "@subscribe.dev/react": "^0.1.19",
     "@use-gesture/react": "^10.3.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

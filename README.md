@@ -8,6 +8,8 @@ frontrunner is a UI/UX showcase for a generative AI workspace: browse a model, s
 
 Built with React, TypeScript, and Vite. Subscribe.dev supplies the integration for authentication, model requests, billing, and cloud storage. This repository contains the frontend, with no standalone model backend or bundled provider credentials.
 
+<img width="1464" height="878" alt="image" src="https://github.com/user-attachments/assets/73c0c15d-1c33-40f3-bf60-6aab4fcec100" />
+
 ## Explore the interfaces
 
 ### Runners
